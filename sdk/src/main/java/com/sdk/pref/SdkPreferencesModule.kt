@@ -15,7 +15,7 @@ import javax.inject.Qualifier
  */
 
 @Module(includes = [SdkBaseModule::class])
-class SdkPreferencesModule() {
+class SdkPreferencesModule {
 
     @Provides
     @LibScope

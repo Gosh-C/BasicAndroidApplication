@@ -38,11 +38,11 @@ android {
         // *** Platform ***
         pro {
             dimension 'platform'
-            applicationId 'com.gosh.pro'
+            applicationId 'com.app.pro'
         }
         lite {
             dimension 'platform'
-            applicationId 'com.gosh.lite'
+            applicationId 'com.app.lite'
         }
 
         // *** Environment ***

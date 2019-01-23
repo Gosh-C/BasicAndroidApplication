@@ -1,4 +1,4 @@
-package com.gosh.basic
+package com.app.basic
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
