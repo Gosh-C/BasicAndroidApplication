@@ -11,20 +11,20 @@ android {
     compileSdkVersion compile_sdk_version
     buildToolsVersion build_tools_version
 
-//    signingConfigs {
-//        release {
-//            keyPassword 'KEY_PWD HERE'
-//            storeFile file('../../KEY_STORE_PATH_HERE')
-//            storePassword 'STORE_PWD HERE'
-//            keyAlias 'KEY_ALIAS HERE'
-//        }
-//        debug {
-//            keyPassword 'KEY_PWD HERE'
-//            storeFile file('../../KEY_STORE_PATH_HERE')
-//            storePassword 'STORE_PWD HERE'
-//            keyAlias 'KEY_ALIAS HERE'
-//        }
-//    }
+    signingConfigs {
+        release {
+            keyPassword 'Password'
+            storeFile file('../../BasicApplicationKeystore/prod.keystore')
+            storePassword 'Password'
+            keyAlias 'key0'
+        }
+        debug {
+            keyPassword 'Password'
+            storeFile file('../../BasicApplicationKeystore/prod.keystore')
+            storePassword 'Password'
+            keyAlias 'key0'
+        }
+    }
 
     defaultConfig {
         minSdkVersion 21
@@ -86,11 +86,11 @@ android {
             jniDebuggable true
             zipAlignEnabled false
             minifyEnabled true
-            useProguard false
+            useProguard true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules_debug.pro'
 //            testProguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules_test_debug.pro'
 //            testCoverageEnabled true
-//            signingConfig signingConfigs.release
+            signingConfig signingConfigs.debug
             // To disable Fabric - Crashlytics
             buildConfigField "boolean", "USE_CRASHLYTICS", "false"
             ext.enableCrashlytics = false
@@ -107,8 +107,8 @@ android {
             jniDebuggable false
             zipAlignEnabled true
             minifyEnabled true
-            useProguard false
-//            signingConfig signingConfigs.release
+            useProguard true
+            signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             testProguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules_test_debug.pro'
             // To enable Fabric - Crashlytics
@@ -135,6 +135,7 @@ fileTree(dir: '../common_libs', include: '**/*.aar')
 }
 
 dependencies {
+
     // Other modules
     implementation project(':sdk')
 
