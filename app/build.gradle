@@ -178,6 +178,9 @@ dependencies {
         transitive = true
     }
 
+    // AndroidEasyLog
+    implementation "com.sotwtm.util:ec-log:$versions.android_ec_log"
+
     // For unit test
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
