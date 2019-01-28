@@ -6,6 +6,7 @@ import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.sdk.SDK
+import com.sdk.api.ApiComponent
 import com.sdk.network.NetworkSecurityModule
 import com.sdk.network.RetrofitBuilder
 import com.sdk.pref.SdkPreferences
@@ -49,5 +50,6 @@ interface SdkBaseComponent : AndroidInjector<SDK> {
     val sdkPreferences: SdkPreferences
     val retrofitBuilder: RetrofitBuilder
 
-//    val m88ApiComponentBuilder: M88ApiComponent.Builder
+    //Declare SubComponent
+    val apiComponentBuilder: ApiComponent.Builder
 }
