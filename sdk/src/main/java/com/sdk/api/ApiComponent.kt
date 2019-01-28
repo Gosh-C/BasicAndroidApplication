@@ -3,6 +3,7 @@ package com.sdk.api
 import android.app.Application
 import android.content.Context
 import com.google.gson.Gson
+import com.sdk.api.services.ApiService
 import com.sdk.base.SDKConfig
 import com.sdk.pref.SdkPreferences
 import com.squareup.picasso.Picasso
@@ -14,7 +15,7 @@ import dagger.Subcomponent
         modules = [
 //            ViewModelModule::class,
 //            BrandPreferencesModule::class,
-//            ServicesModule::class
+            ServicesModule::class
         ]
 )
 interface ApiComponent {
@@ -36,4 +37,7 @@ interface ApiComponent {
 
     // Config values
     val sdkConfig: SDKConfig
+
+    // API services
+    val apiService: ApiService
 }
