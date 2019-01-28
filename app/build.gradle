@@ -46,6 +46,10 @@ android {
         }
 
         // *** Environment ***
+        dev {
+            dimension 'environment'
+            versionName defaultConfig.versionName + "_dev-" + defaultConfig.versionCode
+        }
         uat {
             dimension 'environment'
             versionName defaultConfig.versionName + "_uat-" + defaultConfig.versionCode
@@ -62,19 +66,18 @@ android {
             [(it.productFlavor.dimension): it.productFlavor.name]
         }
 
-        if (variant.buildType.name == 'debug') {
-            /*if (dim.environment == 'production') {
-                // Ignore debug build for production
-                variant.setIgnore(true)
-            }*/
-        } else if (variant.buildType.name == 'beta') {
-            if (dim.environment == 'uat') {
-                // Ignore beta build for uat
+        if(dim.environment == 'production'){
+
+        }
+        else if(dim.environment == 'uat'){
+            //Set uat environment only has debug and beta build
+            if (variant.buildType.name == 'release'){
                 variant.setIgnore(true)
             }
-        } else if (variant.buildType.name == 'release') {
-            if (dim.environment == 'uat') {
-                // Ignore release build for uat
+        }
+        else if(dim.environment == 'dev'){
+            //Set dev environment only has debug build
+            if (variant.buildType.name == 'beta' || variant.buildType.name == 'release'){
                 variant.setIgnore(true)
             }
         }
